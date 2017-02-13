@@ -8,9 +8,7 @@ git clone https://${USER}:${TOKEN}@github.com/${USER}/${REPO}.git --branch gh-pa
 cd gh-pages || exit 1
 git config user.name "cokebar"
 git config user.email "cokebar@cokebar.info"
-if [ ! -d "${OSVER}" ]; then
-  mkdir ${OSVER}
-fi
+mkdir -p ${OSVER}
 pushd $OSVER
 cp $TRAVIS_BUILD_DIR/*.ipk .
 $TRAVIS_BUILD_DIR/sdk/$SDK_DIR/scripts/ipkg-make-index.sh . > Packages
