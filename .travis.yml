@@ -1,6 +1,6 @@
 #filename:.travis.yml
 dist: trusty
-sudo: false
+sudo: true
 cache:
   bundler: true
   directories:
