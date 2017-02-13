@@ -8,12 +8,12 @@ git clone https://${USER}:${TOKEN}@github.com/${USER}/${REPO}.git --branch gh-pa
 cd gh-pages || exit 1
 git config user.name "cokebar"
 git config user.email "cokebar@cokebar.info"
-if [ ! -d "$OSVIR" ]; then
-  mkdir $OSVIR
+if [ ! -d "${OSVER}" ]; then
+  mkdir ${OSVER}
 fi
-cd $OSVIR
+pushd $OSVER
 cp $TRAVIS_BUILD_DIR/*.ipk .
-$TRAVIS_BUILD_DIR/sdk/OpenWrt-SDK-*/scripts/ipkg-make-index.sh . > Packages
+$TRAVIS_BUILD_DIR/sdk/$SDK_DIR/scripts/ipkg-make-index.sh . > Packages
 gzip -c Packages > Packages.gz
 cat > index.html <<EOF
 <html><body><pre>
@@ -35,6 +35,7 @@ opkg install ${PACKAGE}
 \`\`\`
 EOF
 git add -A
+popd
 #git pull
 git commit -a -m "Deploy Travis build $TRAVIS_BUILD_NUMBER to gh-pages"
 #git push -fq origin gh-pages:gh-pages > /dev/null 2>&1 || exit 1
