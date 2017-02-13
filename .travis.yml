@@ -1,9 +1,9 @@
 #filename:.travis.yml
 sudo: false
-#cache:
-#  bundler: true
-#  directories:
-#  - cache/
+cache:
+  bundler: true
+  directories:
+  - cache/
 notifications:
   email: false
 language: c
@@ -25,9 +25,9 @@ env:
 #  - OSVER=OpenWrt   SDK_URL=https://downloads.openwrt.org/chaos_calmer/15.05.1/x86/generic/OpenWrt-SDK-15.05.1-x86-generic_gcc-4.8-linaro_uClibc-0.9.33.2.Linux-x86_64.tar.bz2
 #  - OSVER=OpenWrt   SDK_URL=https://downloads.openwrt.org/chaos_calmer/15.05.1/x86/64/OpenWrt-SDK-15.05.1-x86-64_gcc-4.8-linaro_uClibc-0.9.33.2.Linux-x86_64.tar.bz2
 install:
-#- mkdir -p $TRAVIS_BUILD_DIR/local ; cd $TRAVIS_BUILD_DIR/local
-#- wget "http://us.archive.ubuntu.com/ubuntu/pool/main/c/ccache/ccache_3.3.3-1_amd64.deb"
-#- dpkg -x *.deb .
+- mkdir -p $TRAVIS_BUILD_DIR/local ; cd $TRAVIS_BUILD_DIR/local
+- wget "http://us.archive.ubuntu.com/ubuntu/pool/main/c/ccache/ccache_3.3.3-1_amd64.deb"
+- dpkg -x *.deb .
 - mkdir -p $TRAVIS_BUILD_DIR/cache ; cd $TRAVIS_BUILD_DIR/cache
 - wget -c $SDK_URL
 - mkdir -p $TRAVIS_BUILD_DIR/sdk ; cd $TRAVIS_BUILD_DIR/sdk
@@ -39,8 +39,14 @@ install:
 - ln -s $TRAVIS_BUILD_DIR/Makefile package/$PACKAGE/
 - ln -s $TRAVIS_BUILD_DIR/files package/$PACKAGE/
 script:
-#- export PATH=$TRAVIS_BUILD_DIR/local/usr/bin:$PATH
+- export PATH=$TRAVIS_BUILD_DIR/local/usr/bin:$PATH
 - cd $TRAVIS_BUILD_DIR/sdk/$SDK_DIR
+- SDK_DIR=$(basename `pwd`)
+- export PATH=$TRAVIS_BUILD_DIR/sdk/$SDK_DIR/staging_dir/host/bin:$PATH
+- pushd staging_dir/toolchain-*
+- TOOLCHAIN_DIR=$(basename `pwd`)
+- export PATH=$TRAVIS_BUILD_DIR/sdk/$SDK_DIR/staging_dir/$TOOLCHAIN_DIR/bin:$PATH
+- popd
 - ./scripts/feeds update packages >/dev/null
 - make defconfig
 - make package/vlmcsd/compile V=s
