@@ -35,14 +35,14 @@ install:
 - cd $TRAVIS_BUILD_DIR/sdk/OpenWrt-SDK-*
 - mkdir package/$PACKAGE
 - ln -s $TRAVIS_BUILD_DIR/Makefile package/$PACKAGE/
-- ln -s $TRAVIS_BUILD_DIR/src package/$PACKAGE/
+- ln -s $TRAVIS_BUILD_DIR/files package/$PACKAGE/
 script:
 - export PATH=$TRAVIS_BUILD_DIR/local/usr/bin:$PATH
 - cd $TRAVIS_BUILD_DIR/sdk/OpenWrt-SDK-*
-- "./scripts/feeds update packages >/dev/null"
+- ./scripts/feeds update packages >/dev/null
 - make V=s
 - find $TRAVIS_BUILD_DIR/sdk/OpenWrt-SDK-*/bin/
-- find . -name *.ipk -exec cp {} $TRAVIS_BUILD_DIR \;
+- find . -name *vlmcsd.ipk -exec cp {} $TRAVIS_BUILD_DIR \;
 - cd $TRAVIS_BUILD_DIR/
 - chmod a+x $TRAVIS_BUILD_DIR/deploy.sh
 after_success: "$TRAVIS_BUILD_DIR/deploy.sh"
