@@ -33,17 +33,17 @@ install:
 - mkdir -p $TRAVIS_BUILD_DIR/sdk ; cd $TRAVIS_BUILD_DIR/sdk
 - export FILE=$TRAVIS_BUILD_DIR/cache/$(basename $SDK_URL)
 - file $FILE
-- tar xjf $FILE
-- cd $TRAVIS_BUILD_DIR/sdk/OpenWrt-SDK-*
+- if [ "$OSVER" = "OPENWRT" ]; then tar xjf $FILE && SDK_DIR="OpenWrt-SDK-*"; elif [ "OSVER" = "LEDE" ]; then tar Jxf $FILE && SDK_DIR="lede-sdk-*"; fi
+- cd $TRAVIS_BUILD_DIR/sdk/$SDK_DIR
 - mkdir package/$PACKAGE
 - ln -s $TRAVIS_BUILD_DIR/Makefile package/$PACKAGE/
 - ln -s $TRAVIS_BUILD_DIR/files package/$PACKAGE/
 script:
 - export PATH=$TRAVIS_BUILD_DIR/local/usr/bin:$PATH
-- cd $TRAVIS_BUILD_DIR/sdk/OpenWrt-SDK-*
+- cd $TRAVIS_BUILD_DIR/sdk/$SDK_DIR
 - ./scripts/feeds update packages >/dev/null
 - make V=s
-- find $TRAVIS_BUILD_DIR/sdk/OpenWrt-SDK-*/bin/
+- find $TRAVIS_BUILD_DIR/sdk/$SDK_DIR/bin/
 - find . -name *vlmcsd*.ipk -exec cp {} $TRAVIS_BUILD_DIR \;
 - cd $TRAVIS_BUILD_DIR/
 - chmod a+x $TRAVIS_BUILD_DIR/deploy.sh
