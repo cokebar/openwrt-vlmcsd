@@ -13,7 +13,7 @@ if [ ! -d "$OSVIR" ]; then
 fi
 pushd $OSVIR
 cp $TRAVIS_BUILD_DIR/*.ipk .
-$TRAVIS_BUILD_DIR/sdk/OpenWrt-SDK-*/scripts/ipkg-make-index.sh . > Packages
+$TRAVIS_BUILD_DIR/sdk/$SDK_DIR/scripts/ipkg-make-index.sh . > Packages
 gzip -c Packages > Packages.gz
 cat > index.html <<EOF
 <html><body><pre>
