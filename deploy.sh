@@ -4,7 +4,7 @@
 # where they can be accessed by OpenWrt opkg directly
 cd /tmp/
 git clone https://${USER}:${TOKEN}@github.com/${USER}/${REPO}.git --branch gh-pages \
---single-branch gh-pages > /dev/null 2>&1 || exit 1 # so that the key does not leak to the logs in case of errors 防止在log中泄露TOKEN明文
+--single-branch gh-pages > /dev/null 2>&1 || exit 1 # so that the key does not leak to the logs in case of errors
 cd gh-pages || exit 1
 git config user.name "Travis CI"
 git config user.email "travis@noreply"
@@ -34,7 +34,7 @@ git add -A
 #git pull
 git commit -a -m "Deploy Travis build $TRAVIS_BUILD_NUMBER to gh-pages"
 #git push -fq origin gh-pages:gh-pages > /dev/null 2>&1 || exit 1
-git push -fq origin gh-pages > /dev/null 2>&1 || exit 1 # so that the key does not leak to the logs in case of errors防止在log中泄露TOKEN明文
+git push -fq origin gh-pages > /dev/null 2>&1 || exit 1 # so that the key does not leak to the logs in case of errors
 #git push -f origin gh-pages:gh-pages
 echo -e "Uploaded files to gh-pages\n"
 cd -
