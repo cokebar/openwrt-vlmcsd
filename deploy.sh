@@ -11,7 +11,7 @@ git config user.email "cokebar@cokebar.info"
 if [ ! -d "$OSVIR" ]; then
   mkdir $OSVIR
 fi
-cd $OSVIR
+pushd $OSVIR
 cp $TRAVIS_BUILD_DIR/*.ipk .
 $TRAVIS_BUILD_DIR/sdk/OpenWrt-SDK-*/scripts/ipkg-make-index.sh . > Packages
 gzip -c Packages > Packages.gz
@@ -34,6 +34,7 @@ opkg update
 opkg install ${PACKAGE}
 \`\`\`
 EOF
+popd
 git add -A
 #git pull
 git commit -a -m "Deploy Travis build $TRAVIS_BUILD_NUMBER to gh-pages"
