@@ -24,6 +24,12 @@ env:
   - OSVER=LEDE      SDK_URL=https://downloads.lede-project.org/releases/17.01.0-rc2/targets/mvebu/generic/lede-sdk-17.01.0-rc2-mvebu_gcc-5.4.0_musl-1.1.16_eabi.Linux-x86_64.tar.xz
 #  - OSVER=OpenWrt   SDK_URL=https://downloads.openwrt.org/chaos_calmer/15.05.1/x86/generic/OpenWrt-SDK-15.05.1-x86-generic_gcc-4.8-linaro_uClibc-0.9.33.2.Linux-x86_64.tar.bz2
 #  - OSVER=OpenWrt   SDK_URL=https://downloads.openwrt.org/chaos_calmer/15.05.1/x86/64/OpenWrt-SDK-15.05.1-x86-64_gcc-4.8-linaro_uClibc-0.9.33.2.Linux-x86_64.tar.bz2
+before_install:
+  - if [ "$OSVER" = "LEDE" ]; then
+    - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+    - sudo apt-get update -q
+    - sudo apt-get install gcc-5.4 -y
+  - fi
 install:
 - mkdir -p $TRAVIS_BUILD_DIR/local ; cd $TRAVIS_BUILD_DIR/local
 - wget "http://us.archive.ubuntu.com/ubuntu/pool/main/c/ccache/ccache_3.3.3-1_amd64.deb"
@@ -41,12 +47,6 @@ install:
 script:
 - export PATH=$TRAVIS_BUILD_DIR/local/usr/bin:$PATH
 - cd $TRAVIS_BUILD_DIR/sdk/$SDK_DIR
-- SDK_DIR=$(basename `pwd`)
-- export PATH=$TRAVIS_BUILD_DIR/sdk/$SDK_DIR/staging_dir/host/bin:$PATH
-- pushd staging_dir/toolchain-*
-- TOOLCHAIN_DIR=$(basename `pwd`)
-- export PATH=$TRAVIS_BUILD_DIR/sdk/$SDK_DIR/staging_dir/$TOOLCHAIN_DIR/bin:$PATH
-- popd
 - ./scripts/feeds update packages >/dev/null
 - make defconfig
 - make package/vlmcsd/compile V=s
