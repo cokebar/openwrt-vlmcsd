@@ -6,8 +6,8 @@ cd /tmp/
 git clone https://${USER}:${TOKEN}@github.com/${USER}/${REPO}.git --branch gh-pages \
 --single-branch gh-pages > /dev/null 2>&1 || exit 1 # so that the key does not leak to the logs in case of errors
 cd gh-pages || exit 1
-git config user.name "Travis CI"
-git config user.email "travis@noreply"
+git config user.name "cokebar"
+git config user.email "cokebar@cokebar.info"
 cp $TRAVIS_BUILD_DIR/*ipk .
 $TRAVIS_BUILD_DIR/sdk/OpenWrt-SDK-*/scripts/ipkg-make-index.sh . > Packages
 gzip -c Packages > Packages.gz
