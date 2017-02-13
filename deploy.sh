@@ -8,12 +8,16 @@ git clone https://${USER}:${TOKEN}@github.com/${USER}/${REPO}.git --branch gh-pa
 cd gh-pages || exit 1
 git config user.name "cokebar"
 git config user.email "cokebar@cokebar.info"
-cp $TRAVIS_BUILD_DIR/*ipk .
+if [ ! -d "$OSVIR" ]; then
+  mkdir $OSVIR
+fi
+cd $OSVIR
+cp $TRAVIS_BUILD_DIR/*.ipk .
 $TRAVIS_BUILD_DIR/sdk/OpenWrt-SDK-*/scripts/ipkg-make-index.sh . > Packages
 gzip -c Packages > Packages.gz
 cat > index.html <<EOF
 <html><body><pre>
-echo "src/gz announce http://${USER}.github.io/${PACKAGE}" >> /etc/opkg.conf
+echo "src/gz announce http://${USER}.github.io/${REPO}/${OSVIR}" >> /etc/opkg.conf
 opkg update
 opkg install ${PACKAGE}
 </pre></body></html>
