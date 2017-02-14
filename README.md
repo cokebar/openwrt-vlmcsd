@@ -27,4 +27,4 @@ If you don't use luci-app-vlmcsd and you want vlmcsd support KMS auto activation
 
 3. /etc/init.d/vlmcsd enable && /etc/init.d/vlmcsd start && /etc/init.d/dnsmasq restart
 
-Your can find pre-compile ipk here: https://github.com/cokebar/openwrt-vlmcsd/tree/gh-pages
+Your can find pre-compiled ipk here: https://github.com/cokebar/openwrt-vlmcsd/tree/gh-pages
