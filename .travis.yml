@@ -34,8 +34,7 @@ install:
 - mkdir -p $TRAVIS_BUILD_DIR/sdk ; cd $TRAVIS_BUILD_DIR/sdk
 - export FILE=$TRAVIS_BUILD_DIR/cache/$(basename $SDK_URL)
 - file $FILE
-- if [ "$OSVER" = "OpenWrt" ]; then tar xjf $FILE && SDK_DIR="OpenWrt-SDK-*"; elif [ "$OSVER" = "LEDE" ]; then tar Jxf $FILE && SDK_DIR="lede-sdk-*"; fi
-- export $SDK_DIR
+- if [ "$OSVER" = "OpenWrt" ]; then tar xjf $FILE && export SDK_DIR="OpenWrt-SDK-*"; elif [ "$OSVER" = "LEDE" ]; then tar Jxf $FILE && export SDK_DIR="lede-sdk-*"; fi
 - cd $TRAVIS_BUILD_DIR/sdk/$SDK_DIR
 - mkdir package/$PACKAGE
 - ln -s $TRAVIS_BUILD_DIR/Makefile package/$PACKAGE/
