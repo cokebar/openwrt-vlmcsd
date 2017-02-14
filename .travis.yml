@@ -34,7 +34,7 @@ install:
 - mkdir -p $TRAVIS_BUILD_DIR/sdk ; cd $TRAVIS_BUILD_DIR/sdk
 - export FILE=$TRAVIS_BUILD_DIR/cache/$(basename $SDK_URL)
 - file $FILE
-- if [ "$OSVER" = "OpenWrt" ]; then tar xjf $FILE && export SDK_DIR="OpenWrt-SDK-*"; elif [ "$OSVER" = "LEDE" ]; then tar Jxf $FILE && export SDK_DIR="lede-sdk-*"; fi
+- if [ "$OSVER" = "OpenWrt" ]; then tar xjf $FILE && SDK_DIR="OpenWrt-SDK-*"; elif [ "$OSVER" = "LEDE" ]; then tar Jxf $FILE && SDK_DIR="lede-sdk-*"; fi
 - cd $TRAVIS_BUILD_DIR/sdk/$SDK_DIR
 - mkdir package/$PACKAGE
 - ln -s $TRAVIS_BUILD_DIR/Makefile package/$PACKAGE/
@@ -42,6 +42,12 @@ install:
 script:
 - export PATH=$TRAVIS_BUILD_DIR/local/usr/bin:$PATH
 - cd $TRAVIS_BUILD_DIR/sdk/$SDK_DIR
+- export SDK_DIR=$(basename `pwd`)
+- export PATH=$TRAVIS_BUILD_DIR/sdk/$SDK_DIR/staging_dir/host/bin:$PATH
+- pushd staging_dir/toolchain-*
+- TOOLCHAIN_DIR=$(basename `pwd`)
+- export PATH=$TRAVIS_BUILD_DIR/sdk/$SDK_DIR/staging_dir/$TOOLCHAIN_DIR/bin:$PATH
+- popd
 - ./scripts/feeds update packages >/dev/null
 - make defconfig
 - make package/vlmcsd/compile V=s
