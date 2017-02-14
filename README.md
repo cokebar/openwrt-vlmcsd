@@ -26,3 +26,5 @@ If you don't use luci-app-vlmcsd and you want vlmcsd support KMS auto activation
    The response should be your router's IP.
 
 3. /etc/init.d/vlmcsd enable && /etc/init.d/vlmcsd start && /etc/init.d/dnsmasq restart
+
+Your can find pre-compile ipk here: https://github.com/cokebar/openwrt-vlmcsd/tree/gh-pages
