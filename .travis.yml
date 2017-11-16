@@ -61,7 +61,7 @@ script:
 - find . -name *vlmcsd*.ipk -exec cp {} $TRAVIS_BUILD_DIR \;
 - cd $TRAVIS_BUILD_DIR/
 - chmod a+x $TRAVIS_BUILD_DIR/deploy.sh
-after_success: "$TRAVIS_BUILD_DIR/deploy.sh"
+#after_success: "$TRAVIS_BUILD_DIR/deploy.sh"
 before_deploy: git fetch --tags
 deploy:
   provider: releases
