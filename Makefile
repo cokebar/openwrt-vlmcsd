@@ -9,7 +9,7 @@ PKG_LICENSE:=MIT
 PKG_LICENSE_FILES:=LICENSE
 
 PKG_SOURCE:=$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=https://github.com/cokebar/vlmcsd/archive
+PKG_SOURCE_URL:=https://github.com/Wind4/vlmcsd/archive
 PKG_MD5SUM:=806b26fcb3973e4f4384da2e0c56d3d1
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
