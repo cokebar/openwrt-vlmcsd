@@ -19,7 +19,7 @@ git clone https://github.com/TienYow/openwrt-vlmcsd.git package/vlmcsd
 # 选择要编译的包
 make menuconfig
 # 开始编译
-make package/luci-app-shadowsocks/compile V=99
+make package/vlmcsd/compile V=99
 ```
 Using without luci-app-vlmcsd
 -----
