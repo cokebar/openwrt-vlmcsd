@@ -12,8 +12,8 @@ compiler: gcc
 env:
   global:
   - PACKAGE=vlmcsd
-  - USER=cokebar
-  - REPO=openwrt-vlmcsd
+  - GH_USER=cokebar
+  - GH_REPO=openwrt-vlmcsd
   matrix:
   - SDK_URL=https://downloads.openwrt.org/releases/18.06.8/targets/ar71xx/nand/openwrt-sdk-18.06.8-ar71xx-nand_gcc-7.3.0_musl.Linux-x86_64.tar.xz
   - SDK_URL=https://downloads.openwrt.org/releases/18.06.8/targets/ramips/mt7620/openwrt-sdk-18.06.8-ramips-mt7620_gcc-7.3.0_musl.Linux-x86_64.tar.xz
