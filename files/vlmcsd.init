@@ -1,11 +1,10 @@
 #!/bin/sh /etc/rc.common
-# Copyright (c) 2011-2015 OpenWrt.org
 
 START=90
 
 start(){
 	if [ ! -f "/tmp/vlmcsd.pid" ]; then
-		/usr/bin/vlmcsd -i /etc/vlmcsd.ini -p /tmp/vlmcsd.pid -l syslog -L 0.0.0.0:1688 -L [::]:1688
+		/usr/bin/vlmcsd -i /etc/vlmcsd.ini -j /etc/vlmcsd.kmd -p /tmp/vlmcsd.pid -l syslog -L 0.0.0.0:1688 -L [::]:1688
 		echo "KMS Server has started."
 	else
 		echo "KMS Server has already started."

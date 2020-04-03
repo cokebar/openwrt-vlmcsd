@@ -15,23 +15,23 @@ env:
   - USER=cokebar
   - REPO=openwrt-vlmcsd
   matrix:
-  - SDK_URL=https://downloads.openwrt.org/releases/18.06.1/targets/ar71xx/nand/openwrt-sdk-18.06.1-ar71xx-nand_gcc-7.3.0_musl.Linux-x86_64.tar.xz
-  - SDK_URL=https://downloads.openwrt.org/releases/18.06.1/targets/ramips/mt7620/openwrt-sdk-18.06.1-ramips-mt7620_gcc-7.3.0_musl.Linux-x86_64.tar.xz
-  - SDK_URL=https://downloads.openwrt.org/releases/18.06.1/targets/brcm63xx/generic/openwrt-sdk-18.06.1-brcm63xx-generic_gcc-7.3.0_musl.Linux-x86_64.tar.xz
-  - SDK_URL=https://downloads.openwrt.org/releases/18.06.1/targets/bcm53xx/generic/openwrt-sdk-18.06.1-bcm53xx_gcc-7.3.0_musl_eabi.Linux-x86_64.tar.xz
-  - SDK_URL=https://downloads.openwrt.org/releases/18.06.1/targets/brcm47xx/generic/openwrt-sdk-18.06.1-brcm47xx-generic_gcc-7.3.0_musl.Linux-x86_64.tar.xz
-  - SDK_URL=https://downloads.openwrt.org/releases/18.06.1/targets/mvebu/cortexa9/openwrt-sdk-18.06.1-mvebu-cortexa9_gcc-7.3.0_musl_eabi.Linux-x86_64.tar.xz
-  - SDK_URL=https://downloads.openwrt.org/releases/18.06.1/targets/mvebu/cortexa53/openwrt-sdk-18.06.1-mvebu-cortexa53_gcc-7.3.0_musl.Linux-x86_64.tar.xz
-  - SDK_URL=https://downloads.openwrt.org/releases/18.06.1/targets/mvebu/cortexa72/openwrt-sdk-18.06.1-mvebu-cortexa72_gcc-7.3.0_musl.Linux-x86_64.tar.xz
-  - SDK_URL=https://downloads.openwrt.org/releases/18.06.1/targets/x86/generic/openwrt-sdk-18.06.1-x86-generic_gcc-7.3.0_musl.Linux-x86_64.tar.xz
-  - SDK_URL=https://downloads.openwrt.org/releases/18.06.1/targets/x86/64/openwrt-sdk-18.06.1-x86-64_gcc-7.3.0_musl.Linux-x86_64.tar.xz
-  - SDK_URL=https://downloads.openwrt.org/releases/18.06.1/targets/kirkwood/generic/openwrt-sdk-18.06.1-kirkwood_gcc-7.3.0_musl_eabi.Linux-x86_64.tar.xz
-  - SDK_URL=https://downloads.openwrt.org/releases/18.06.1/targets/brcm2708/bcm2708/openwrt-sdk-18.06.1-brcm2708-bcm2708_gcc-7.3.0_musl_eabi.Linux-x86_64.tar.xz
-  - SDK_URL=https://downloads.openwrt.org/releases/18.06.1/targets/brcm2708/bcm2709/openwrt-sdk-18.06.1-brcm2708-bcm2709_gcc-7.3.0_musl_eabi.Linux-x86_64.tar.xz
-  - SDK_URL=https://downloads.openwrt.org/releases/18.06.1/targets/mpc85xx/generic/openwrt-sdk-18.06.1-mpc85xx-generic_gcc-7.3.0_musl.Linux-x86_64.tar.xz
+  - SDK_URL=https://downloads.openwrt.org/releases/18.06.8/targets/ar71xx/nand/openwrt-sdk-18.06.8-ar71xx-nand_gcc-7.3.0_musl.Linux-x86_64.tar.xz
+  - SDK_URL=https://downloads.openwrt.org/releases/18.06.8/targets/ramips/mt7620/openwrt-sdk-18.06.8-ramips-mt7620_gcc-7.3.0_musl.Linux-x86_64.tar.xz
+  - SDK_URL=https://downloads.openwrt.org/releases/18.06.8/targets/brcm63xx/generic/openwrt-sdk-18.06.8-brcm63xx-generic_gcc-7.3.0_musl.Linux-x86_64.tar.xz
+  - SDK_URL=https://downloads.openwrt.org/releases/18.06.8/targets/bcm53xx/generic/openwrt-sdk-18.06.8-bcm53xx_gcc-7.3.0_musl_eabi.Linux-x86_64.tar.xz
+  - SDK_URL=https://downloads.openwrt.org/releases/18.06.8/targets/brcm47xx/generic/openwrt-sdk-18.06.8-brcm47xx-generic_gcc-7.3.0_musl.Linux-x86_64.tar.xz
+  - SDK_URL=https://downloads.openwrt.org/releases/18.06.8/targets/mvebu/cortexa9/openwrt-sdk-18.06.8-mvebu-cortexa9_gcc-7.3.0_musl_eabi.Linux-x86_64.tar.xz
+  - SDK_URL=https://downloads.openwrt.org/releases/18.06.8/targets/mvebu/cortexa53/openwrt-sdk-18.06.8-mvebu-cortexa53_gcc-7.3.0_musl.Linux-x86_64.tar.xz
+  - SDK_URL=https://downloads.openwrt.org/releases/18.06.8/targets/mvebu/cortexa72/openwrt-sdk-18.06.8-mvebu-cortexa72_gcc-7.3.0_musl.Linux-x86_64.tar.xz
+  - SDK_URL=https://downloads.openwrt.org/releases/18.06.8/targets/x86/generic/openwrt-sdk-18.06.8-x86-generic_gcc-7.3.0_musl.Linux-x86_64.tar.xz
+  - SDK_URL=https://downloads.openwrt.org/releases/18.06.8/targets/x86/64/openwrt-sdk-18.06.8-x86-64_gcc-7.3.0_musl.Linux-x86_64.tar.xz
+  - SDK_URL=https://downloads.openwrt.org/releases/18.06.8/targets/kirkwood/generic/openwrt-sdk-18.06.8-kirkwood_gcc-7.3.0_musl_eabi.Linux-x86_64.tar.xz
+  - SDK_URL=https://downloads.openwrt.org/releases/18.06.8/targets/brcm2708/bcm2708/openwrt-sdk-18.06.8-brcm2708-bcm2708_gcc-7.3.0_musl_eabi.Linux-x86_64.tar.xz
+  - SDK_URL=https://downloads.openwrt.org/releases/18.06.8/targets/brcm2708/bcm2709/openwrt-sdk-18.06.8-brcm2708-bcm2709_gcc-7.3.0_musl_eabi.Linux-x86_64.tar.xz
+  - SDK_URL=https://downloads.openwrt.org/releases/18.06.8/targets/mpc85xx/generic/openwrt-sdk-18.06.8-mpc85xx-generic_gcc-7.3.0_musl.Linux-x86_64.tar.xz
 install:
 - mkdir -p $TRAVIS_BUILD_DIR/local ; cd $TRAVIS_BUILD_DIR/local
-- wget "http://archive.ubuntu.com/ubuntu/pool/main/c/ccache/ccache_3.5-1_amd64.deb"
+- wget "http://archive.ubuntu.com/ubuntu/pool/main/c/ccache/ccache_3.7.7-1_amd64.deb"
 - dpkg -x *.deb .
 - mkdir -p $TRAVIS_BUILD_DIR/cache ; cd $TRAVIS_BUILD_DIR/cache
 - wget -c $SDK_URL
